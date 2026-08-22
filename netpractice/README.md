@@ -1,11 +1,3 @@
----
-aliases:
-tags:
-  - status/active
-  - project/netpractice
-created: 2026-02-11, 16:18
-modified: 2026-08-21, 20:57
----
 _This project has been created as part of the 42 curriculum by ydylan-k_
 
 <h1 align="center">NetPractice</h1>
@@ -38,7 +30,7 @@ It is a 32-bit address made up of 4 octets (4 octets * 8 bits = 32 bits). Each o
 #### Legacy IPv4 Classes (Classful Routing)
 Before modern CIDR notation (like `/28` or `/24`) existed, the internet used a rigid system called **Classful Routing**. IP addresses were strictly divided into classes (A, B, and C) based on the value of their first octet. This determined their default subnet mask automatically.
 
-The idea behind Classful address assignments was, if you were a company that needed 200 IP addresses, a **/24** IP address block from the **Class C** range would be assigned. Or if you needed 50,000 IP addresses, a **/16** IP address block from **Class B** range would be assigned. Or if you need larger than 65,000~ IP addresses, a **Class A** block would be assigned.[^7]
+The idea behind Classful address assignments was, if you were a company that needed 200 IP addresses, a **/24** IP address block from the **Class C** range would be assigned. Or if you needed 50,000 IP addresses, a **/16** IP address block from **Class B** range would be assigned. Or if you need larger than 65,000~ IP addresses, a **Class A** block would be assigned.
 
 The system was eventually abandoned because it was highly inefficient and wasted millions of usable IP addresses. For instance, if you only needed 300 IP addresses, a **Class C** would not suffice, so you would end up with a **Class B** and nearly 60,000 IP addresses would be wasted. However, its legacy remains important because it explains exactly why we still treat `/8`, `/16`, and `/24` as the "standard" network boundaries today.
 
@@ -146,6 +138,7 @@ For example: The IP address `8.8.8.8` routes to Google's Public DNS server to tr
 | **CNAME** | Alias        | www → example.com           |
 | **MX**    | Mail server  | mail.example.com            |
 | **TXT**   | Text info    | For verification            |
+
 [List of DNS Record Types](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 
 #### Internet Protocol Suite
