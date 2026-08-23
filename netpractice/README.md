@@ -215,8 +215,8 @@ The subnet mask separates network and host part:
 ```
 Mask: 255.255.255.0
 Binary: 11111111.11111111.11111111.00000000
-        ←── 24 bits ──→←── 8 bits ──→
-        Network         Host
+        <-------- 24 bits --------><8 bits>
+                  Network            Host
 ```
 
 #### Host Calculation
@@ -490,5 +490,5 @@ HTTPS is the secure, encrypted version of HTTP.
 - **Ports:** Plain HTTP uses port **80**, while HTTPS uses port **443**.
 - **Security:** It uses SSL/TLS encryption to scramble the traffic between the client and server, ensuring that sensitive data (like passwords) cannot be intercepted or read by attackers on the network.
 
-### How AI was used in this project?
+## How AI was used in this project?
 AI was used to understand the networking concepts and how subnet masks actually works because I had a hard time trying to implement it. And it's used additionally to format this README with information supplemented from my notes.
