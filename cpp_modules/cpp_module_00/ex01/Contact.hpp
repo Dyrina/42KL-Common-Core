@@ -23,7 +23,7 @@ class Contact
 		std::string	m_nickname;
 		std::string	m_phonenumber;
 		std::string	m_darkestsecret;
-		std::string	truncateString(std::string str) const;
+		std::string truncateString(const std::string& str) const;
 	public:
 		Contact();
 		bool	addDetails();

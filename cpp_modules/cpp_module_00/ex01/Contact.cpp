@@ -37,7 +37,7 @@ bool	Contact::addDetails()
 			&& getValidatedField("Enter Darkest Secret: ", m_darkestsecret));
 }
 
-std::string Contact::truncateString(std::string str) const
+std::string Contact::truncateString(const std::string& str) const
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");
