@@ -1,5 +1,5 @@
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -MMD -MP
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
 NAME := test
 SRC := tests.cpp Account.cpp

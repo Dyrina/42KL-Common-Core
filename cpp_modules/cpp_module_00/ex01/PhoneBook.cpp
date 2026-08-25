@@ -39,7 +39,10 @@ void	PhoneBook::displayTable() const
 	int	start;
 	int	k;
 
-	start = (m_totalContacts < MAX_CONTACTS) ? 0 : m_currentIndex;
+	if (m_totalContacts < MAX_CONTACTS)
+	    start = 0;
+	else
+        start = m_currentIndex;
 	std::cout << "---------------------------------------------\n";
 	std::cout << "|" << std::setw(10) << "Index"
 	          << "|" << std::setw(10) << "First Name"
