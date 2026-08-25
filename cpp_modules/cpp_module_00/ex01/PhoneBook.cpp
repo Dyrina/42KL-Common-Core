@@ -74,6 +74,9 @@ void	PhoneBook::searchContacts()
 		std::cout << "Error: No contact exists at that index yet.\n";
 		return;
 	}
-	start = (m_totalContacts < MAX_CONTACTS) ? 0 : m_currentIndex;
+	if (m_totalContacts < MAX_CONTACTS)
+		start = 0;
+	else
+		start = m_currentIndex;
 	m_contacts[(start + index) % MAX_CONTACTS].displayFullDetails();
 }
