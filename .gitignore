@@ -1,4 +1,5 @@
 .zed
 .clangd
+idea/
 *.o
 19920104_091532.log
