@@ -7,8 +7,6 @@ OBJ := $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-all: $(NAME)
-
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 
