@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   File.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ydylan-k <ydylan-k@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/18 12:34:50 by ydylan-k          #+#    #+#             */
+/*   Updated: 2026/09/23 15:39:48 by ydylan-k         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "File.hpp"
 #include <fstream>
 #include <iostream>
-#include <string>
 
 File::File( std::string newFilename, std::string str1, std::string str2 ) :
 	mInFile(newFilename),
@@ -14,26 +25,23 @@ File::~File() {};
 
 bool	File::replaceFile()
 {
+	if (mToReplace == "")
+	{
+		std::cerr << "Error: empty string to find\n";
+		return false;
+	}
 	std::ifstream	inFile(mInFile.c_str());
 	if (!inFile.is_open())
 	{
-		std::cerr << "Error\n";
+		std::cerr << "Error: can't open " << mInFile << "\n";
 		return false;
 	}
-
 	std::ofstream	outFile(mOutFile.c_str());
 	if (!outFile.is_open())
 	{
-		std::cerr << "Error\n";
+		std::cerr << "Error: can't open " << mOutFile << "\n";
 		return false;
 	}
-
-	if (mToReplace == "")
-	{
-		std::cerr << "Error\n";
-		return false;
-	}		
-	
 	while (!inFile.eof())
 	{
 		std::string	newLine;
@@ -49,20 +57,13 @@ bool	File::replaceFile()
 				i = n + mReplaceWith.length();
 			}
 			else
-			{
 				break ;
-			}
 		}
 		if (inFile.eof())
-		{
 			outFile << newLine;
-		}
 		else
-		{
 			outFile << newLine << "\n";
-		}
 	}
-
 	outFile.close();
 	inFile.close();
 	return true;

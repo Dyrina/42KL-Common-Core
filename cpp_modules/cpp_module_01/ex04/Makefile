@@ -1,7 +1,7 @@
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -MMD -MP
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
-VALGRIND := valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=42
+VALGRIND := valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 NAME :=  Sed_is_for_losers
 SRC := main.cpp File.cpp
