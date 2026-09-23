@@ -1,5 +1,5 @@
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -MMD -MP
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
 NAME :=  Unnecessary_violence
 SRC := main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
