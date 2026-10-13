@@ -13,7 +13,6 @@
 #include "Fixed.hpp"
 #include <cmath>
 #include <iostream>
-#include <ostream>
 
 Fixed::Fixed() :
 	m_rawBits(0)
@@ -24,13 +23,13 @@ Fixed::Fixed() :
 Fixed::Fixed( const int newInt )
 {
 	std::cout << "Int constructor called\n";
-	m_rawBits = newInt << m_fracBits;
+	m_rawBits = newInt << m_fractionalBits;
 }
 
 Fixed::Fixed( const float newFloat )
 {
 	std::cout << "Float constructor called\n";
-	m_rawBits = roundf(newFloat * (1 << m_fracBits));
+	m_rawBits = roundf(newFloat * (1 << m_fractionalBits));
 }
 
 Fixed::~Fixed()
@@ -48,7 +47,7 @@ Fixed&	Fixed::operator=( const Fixed& other )
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this != &other)
-		m_rawBits = other.getRawBits();
+		m_rawBits = other.m_rawBits;
 	return *this;
 }
 
@@ -66,12 +65,12 @@ void	Fixed::setRawBits( const int raw )
 
 int	Fixed::toInt() const
 {
-	return m_rawBits >> m_fracBits;
+	return m_rawBits >> m_fractionalBits;
 }
 
 float	Fixed::toFloat() const
 {
-	return (float) m_rawBits / (1 << m_fracBits);
+	return (float) m_rawBits / (1 << m_fractionalBits);
 }
 
 std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint)
