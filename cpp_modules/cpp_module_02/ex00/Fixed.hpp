@@ -17,12 +17,13 @@ class	Fixed
 {
 	private:
 		int					m_fixedPointNbr;
-		static const int	m_fracBits = 8;
+		static const int	m_fractionalBits = 8;
 	public:
 		Fixed();
-		~Fixed();
 		Fixed( const Fixed& other );
 		Fixed&				operator=( const Fixed& other );
+		~Fixed();
+
 		int					getRawBits( void ) const;
 		void				setRawBits( int const raw );
 };
