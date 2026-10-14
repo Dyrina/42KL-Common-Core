@@ -84,14 +84,14 @@ Fixed	Fixed::operator+( const Fixed& other ) const
     return result;
 }
 
-Fixed	Fixed::operator-(const Fixed& other) const
+Fixed	Fixed::operator-( const Fixed& other ) const
 {
 	Fixed result;
 	result.setRawBits(m_rawBits - other.m_rawBits);
 	return result;
 }
 
-Fixed	Fixed::operator*(const Fixed& other) const
+Fixed	Fixed::operator*( const Fixed& other ) const
 {
 	Fixed result;
 	long temp = ((long)m_rawBits * (long)other.m_rawBits) >> m_fractionalBits;
@@ -99,7 +99,7 @@ Fixed	Fixed::operator*(const Fixed& other) const
 	return result;
 }
 
-Fixed	Fixed::operator/(const Fixed& other) const
+Fixed	Fixed::operator/( const Fixed& other ) const
 {
 	Fixed result;
 	long temp = ((long)m_rawBits << m_fractionalBits) / other.m_rawBits;
@@ -113,7 +113,7 @@ Fixed&	Fixed::operator++()
 	return *this;
 }
 
-Fixed	Fixed::operator++(int)
+Fixed	Fixed::operator++( int )
 {
 	Fixed temp(*this);
 	m_rawBits += 1;
@@ -126,7 +126,7 @@ Fixed&	Fixed::operator--()
 	return *this;
 }
 
-Fixed	Fixed::operator--(int)
+Fixed	Fixed::operator--( int )
 {
 	Fixed temp(*this);
 	m_rawBits -= 1;
@@ -138,22 +138,22 @@ Fixed::~Fixed()
 	std::cout << "Destructor called\n";
 }
 
-Fixed&	Fixed::min(Fixed& a, Fixed& b)
+Fixed&	Fixed::min( Fixed& a, Fixed& b )
 {
 	return (a < b) ? a : b;
 }
 
-const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
+const Fixed&	Fixed::min( const Fixed& a, const Fixed& b )
 {
 	return (a < b) ? a : b;
 }
 
-Fixed&	Fixed::max(Fixed& a, Fixed& b)
+Fixed&	Fixed::max( Fixed& a, Fixed& b )
 {
 	return (a > b) ? a : b;
 }
 
-const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
+const Fixed&	Fixed::max( const Fixed& a, const Fixed& b )
 {
 	return (a > b) ? a : b;
 }
@@ -180,7 +180,7 @@ float	Fixed::toFloat() const
 	return (float) m_rawBits / (1 << m_fractionalBits);
 }
 
-std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint)
+std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint )
 {
 	oStream << fixedPoint.toFloat();
 	return oStream;
