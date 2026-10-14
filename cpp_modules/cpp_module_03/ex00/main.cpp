@@ -11,13 +11,28 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
-int	main(void)
-{
-	ClapTrap	player1("Dylan");
+int main() {
+    std::cout << "Basic Actions & Constructors\n";
+    ClapTrap clap("Clappy");
+    ClapTrap target("TargetDummy");
 
-	player1.attack("Sim");
-	player1.takeDamage(5);
-	player1.takeDamage(10);
-	player1.beRepaired(5);
+    clap.attack("TargetDummy");
+    target.takeDamage(0);
+    target.beRepaired(5);
+
+    std::cout << "\nEnergy Depletion Test\n";
+    for (int i = 0; i < 11; i++) {
+        clap.attack("a training dummy");
+    }
+
+    std::cout << "\nDeath & Action Guard Test\n";
+    ClapTrap deadBot("DeadBot");
+    deadBot.takeDamage(20);
+    deadBot.attack("anyone");
+    deadBot.beRepaired(10);
+
+    std::cout << "\nDestructors\n";
+    return 0;
 }
