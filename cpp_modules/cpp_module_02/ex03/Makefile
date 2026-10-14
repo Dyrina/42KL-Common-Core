@@ -1,7 +1,7 @@
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
-NAME := Nwat
+NAME := BSP
 SRC := main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ := $(SRC:.cpp=.o)
 

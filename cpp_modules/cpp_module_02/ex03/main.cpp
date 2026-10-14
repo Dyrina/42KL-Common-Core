@@ -10,19 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Point.hpp"
+#include <iostream>
 
-int main()
+bool	bsp( const Point& a, const Point& b, const Point& c, const Point& point );
+
+int main( void )
 {
-    Point a(0.0f, 0.0f);
-    Point b(10.0f, 0.0f);
-    Point c(0.0f, 10.0f);
+	Point	a(0.0f, 0.0f);
+	Point	b(10.0f, 0.0f);
+	Point	c(0.0f, 10.0f);
 
-    Point inside(2.0f, 2.0f);
-    Point outside(12.0f, 12.0f);
-    Point onEdge(5.0f, 0.0f);
-    Point onVertex(0.0f, 0.0f);
+	Point	inside(2.0f, 2.0f);
+    Point	outside(12.0f, 12.0f);
+    Point	onEdge(5.0f, 0.0f);
+    Point	onVertex(0.0f, 0.0f);
 
     std::cout << "Inside (expected 1): " << bsp(a, b, c, inside) << "\n";
     std::cout << "Outside (expected 0): " << bsp(a, b, c, outside) << "\n";
