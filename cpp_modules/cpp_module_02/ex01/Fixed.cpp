@@ -73,7 +73,7 @@ float	Fixed::toFloat() const
 	return (float) m_rawBits / (1 << m_fractionalBits);
 }
 
-std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint)
+std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint )
 {
 	oStream << fixedPoint.toFloat();
 	return oStream;

@@ -34,6 +34,6 @@ class	Fixed
 		void				setRawBits( int const raw );
 };
 
-std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint);
+std::ostream&	operator<<( std::ostream& oStream, const Fixed& fixedPoint );
 
 #endif
