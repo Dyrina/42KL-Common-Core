@@ -13,7 +13,8 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap() :
+	ClapTrap()
 {
 	m_hitPoints = 100;
 	m_energyPoints = 100;
@@ -21,7 +22,8 @@ FragTrap::FragTrap() : ClapTrap()
 	std::cout << "FragTrap default constructor called\n";
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap( const std::string& name ) :
+	ClapTrap(name)
 {
 	m_hitPoints = 100;
 	m_energyPoints = 100;
@@ -29,13 +31,14 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 	std::cout << "FragTrap " << m_name << " enters the battlefield!\n";
 }
 
-FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+FragTrap::FragTrap( const FragTrap& other ) :
+	ClapTrap(other)
 {
 	*this = other;
 	std::cout << "FragTrap " << m_name << " copy constructed!\n";
 }
 
-FragTrap&	FragTrap::operator=(const FragTrap& other)
+FragTrap&	FragTrap::operator=( const FragTrap& other )
 {
 	if (this != &other)
 		ClapTrap::operator=(other);
@@ -47,7 +50,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap " << m_name << " has been decommissioned!\n";
 }
 
-void	FragTrap::highFivesGuys(void)
+void	FragTrap::highFivesGuys( void )
 {
 	if (m_hitPoints == 0)
 	{
