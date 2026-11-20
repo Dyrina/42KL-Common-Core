@@ -16,7 +16,6 @@
 
 int	main(void)
 {
-	// Bureaucrat	Cat("Cat", 0);
 	std::cout << "*----------------Construction Exception----------------*\n";
 	try
 	{
@@ -61,7 +60,15 @@ int	main(void)
 	{
 		std::cout << e.what() << "\n";
 	}
-	std::cout << "*----------------Catch Block----------------*\n";
 	std::cout << "*----------------Output Operator----------------*\n";
+	try
+	{
+		Bureaucrat	Loud("Loud", 1);
+		std::cout << Loud;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << "\n";
+	}
 	return (0);
 }
