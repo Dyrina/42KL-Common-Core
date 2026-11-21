@@ -23,11 +23,13 @@ class	Bureaucrat
 	private:
 		std::string			m_name;
 		short				m_grade;
+
+		short			validate_grade( const std::string& newName, const short& newGrade );
 	public:
 		Bureaucrat();
 		Bureaucrat( const std::string& newName, const short& newGrade );
 		Bureaucrat( const Bureaucrat& other );
-		Bureaucrat&			operator=( const Bureaucrat& other );
+		Bureaucrat&		operator=( const Bureaucrat& other );
 		~Bureaucrat();
 
 		class GradeTooHighException : public std::exception
@@ -35,10 +37,10 @@ class	Bureaucrat
 			private:
 				std::string	m_errorName;
 				short		m_errorGrade;
-			public:
-				GradeTooHighException( std::string name, short grade);
-				virtual		~GradeTooHighException() throw();
 				std::string	m_errorMessage;
+			public:
+				GradeTooHighException( const std::string& name, const short& grade);
+				virtual		~GradeTooHighException() throw();
 				
 		  		virtual const char*	what() const throw();
 		};
@@ -47,18 +49,18 @@ class	Bureaucrat
 			private:
 				std::string	m_errorName;
 				short		m_errorGrade;
-			public:
-				GradeTooLowException( std::string name, short grade);
-				virtual		~GradeTooLowException() throw();
 				std::string	m_errorMessage;
+			public:
+				GradeTooLowException( const std::string& name, const short& grade);
+				virtual		~GradeTooLowException() throw();
 				
 		  		virtual const char*	what() const throw();
 		};
 		
-		std::string		getName() const;
-		short			getGrade() const;
-		void			incrementGrade();
-		void			decrementGrade();
+		const std::string&	getName() const;
+		short				getGrade() const;
+		void				incrementGrade();
+		void				decrementGrade();
 };
 
 std::ostream&	operator<<( std::ostream& oStream, const Bureaucrat& b );

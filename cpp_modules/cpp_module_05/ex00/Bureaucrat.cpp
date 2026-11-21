@@ -11,33 +11,21 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include <cstdlib>
-#include <ostream>
 
 Bureaucrat::Bureaucrat() :
-	m_name("Bob"),
+	m_name("Bucrat"),
 	m_grade(150)
-{
-	if (m_grade < 1)
-		throw Bureaucrat::GradeTooHighException(m_name, m_grade);
-	else if (m_grade > 150)
-		throw Bureaucrat::GradeTooLowException(m_name, m_grade);
-}
+{}
 
 Bureaucrat::Bureaucrat( const std::string& newName, const short& newGrade ) :
 	m_name(newName),
-	m_grade(newGrade)
-{
-	if (m_grade < 1)
-		throw Bureaucrat::GradeTooHighException(m_name, m_grade);
-	else if (m_grade > 150)
-		throw Bureaucrat::GradeTooLowException(m_name, m_grade);
-}
+	m_grade(validate_grade(newName, newGrade))
+{}
 
-Bureaucrat::Bureaucrat( const Bureaucrat& other )
-{
-	*this = other;
-}
+Bureaucrat::Bureaucrat( const Bureaucrat& other ) :
+	m_name(other.getName()),
+	m_grade(other.getGrade())
+{}
 
 Bureaucrat&		Bureaucrat::operator=( const Bureaucrat &other )
 {
@@ -51,7 +39,7 @@ Bureaucrat&		Bureaucrat::operator=( const Bureaucrat &other )
 
 Bureaucrat::~Bureaucrat() {};
 
-std::string		Bureaucrat::getName() const
+const std::string&	Bureaucrat::getName() const
 {
 	return (m_name);
 }
@@ -77,10 +65,10 @@ void	Bureaucrat::decrementGrade()
 
 /****************************************************************************/
 
-Bureaucrat::GradeTooHighException::GradeTooHighException( std::string newName, short newGrade ) :
+Bureaucrat::GradeTooHighException::GradeTooHighException( const std::string& newName, const short& newGrade ) :
 	m_errorName(newName),
 	m_errorGrade(newGrade),
-	m_errorMessage("Bureaucrat::GradeTooHighException")	
+	m_errorMessage("Bureaucrat::GradeTooHighException: Grade is too high!")	
 {}
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
@@ -90,10 +78,10 @@ const char*	Bureaucrat::GradeTooHighException::what() const throw()
 	return m_errorMessage.c_str();
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException( std::string newName, short newGrade ) :
+Bureaucrat::GradeTooLowException::GradeTooLowException( const std::string& newName, const short& newGrade ) :
 	m_errorName(newName),
 	m_errorGrade(newGrade),
-	m_errorMessage("Bureaucrat::GradeTooLowException")	
+	m_errorMessage("Bureaucrat::GradeTooLowException: Grade is too low!")	
 {}
 
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
@@ -105,6 +93,15 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream&	operator<<( std::ostream& oStream, const Bureaucrat& b )
 {
-	oStream << b.getName() << ", bureaucrat grade " << b.getGrade() << ".\n";
+	oStream << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return (oStream);
+}
+
+short	Bureaucrat::validate_grade( const std::string& newName, const short& newGrade )
+{
+	if (newGrade < 1)
+		throw Bureaucrat::GradeTooHighException(newName, newGrade);
+	else if (newGrade > 150)
+		throw Bureaucrat::GradeTooLowException(newName, newGrade);
+	return (newGrade);
 }

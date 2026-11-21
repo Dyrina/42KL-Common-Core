@@ -19,7 +19,7 @@ int	main(void)
 	std::cout << "*----------------Construction Exception----------------*\n";
 	try
 	{
-		Bureaucrat	Bob("Bob", 151);
+		Bureaucrat	Baby("Bob", 151);
 	}
 	catch(std::exception& e)
 	{
@@ -27,7 +27,7 @@ int	main(void)
 	}
 	try
 	{
-		Bureaucrat	Bob("Bob", 0);
+		Bureaucrat	God("Bob", 0);
 	}
 	catch(std::exception& e)
 	{
@@ -36,11 +36,11 @@ int	main(void)
 	std::cout << "*----------------Decrement & Increment----------------*\n";
 	try
 	{
-		Bureaucrat	Bob("Luke", 150);
+		Bureaucrat	Kiddo("Luke", 150);
+		std::cout << Kiddo << "\n";
 		for (short i = 0; i < 200; i++)
 		{
-			Bob.incrementGrade();
-			std::cout << Bob;
+			Kiddo.incrementGrade();
 		}
 	}
 	catch (std::exception& e)
@@ -49,22 +49,40 @@ int	main(void)
 	}
 	try	
 	{
-		Bureaucrat	John("John", 1);
+		Bureaucrat	Boss("John", 1);
+		std::cout << Boss << "\n";
 		for (short i = 0; i < 200; i++)
 		{
-			John.decrementGrade();
-			std::cout << John;
+			Boss.decrementGrade();
 		}
 	}
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << "\n";
 	}
-	std::cout << "*----------------Output Operator----------------*\n";
+	try	
+	{
+		Bureaucrat	Bucrat;
+		std::cout << Bucrat << "\n";
+		for (short i = 0; i < 200; i++)
+		{
+			Bucrat.decrementGrade();
+		}
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << "\n";
+	}
+	std::cout << "*----------------OCF & Output----------------*\n";
 	try
 	{
-		Bureaucrat	Loud("Loud", 1);
-		std::cout << Loud;
+		Bureaucrat	Boss("Loud", 1);
+		Bureaucrat	Senior("Soft", 2);
+		Bureaucrat	Accomplice(Boss);
+		std::cout << Boss << "\n";
+		Boss = Senior;
+		std::cout << Boss << "\n";
+		std::cout << Accomplice << "\n";
 	}
 	catch (std::exception& e)
 	{
