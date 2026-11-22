@@ -13,8 +13,8 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() :
-	m_name("Bucrat"),
-	m_grade(150)
+	m_name("Bureaucrat"),
+	m_grade(validate_grade("Bureaucrat", 150))
 {}
 
 Bureaucrat::Bureaucrat( const std::string& newName, const short& newGrade ) :
@@ -68,7 +68,7 @@ void	Bureaucrat::decrementGrade()
 Bureaucrat::GradeTooHighException::GradeTooHighException( const std::string& newName, const short& newGrade ) :
 	m_errorName(newName),
 	m_errorGrade(newGrade),
-	m_errorMessage("Bureaucrat::GradeTooHighException: Grade is too high!")	
+	m_errorMessage("Bureaucrat::GradeTooHighException: Grade is too high! (Maximum is 1)")	
 {}
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
@@ -81,7 +81,7 @@ const char*	Bureaucrat::GradeTooHighException::what() const throw()
 Bureaucrat::GradeTooLowException::GradeTooLowException( const std::string& newName, const short& newGrade ) :
 	m_errorName(newName),
 	m_errorGrade(newGrade),
-	m_errorMessage("Bureaucrat::GradeTooLowException: Grade is too low!")	
+	m_errorMessage("Bureaucrat::GradeTooLowException: Grade is too low! (Minimum is 150)")	
 {}
 
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
