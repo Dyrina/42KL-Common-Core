@@ -32,7 +32,6 @@ Bureaucrat&		Bureaucrat::operator=( const Bureaucrat &other )
 	if (this != &other)
 	{
 		this->m_grade = other.m_grade;
-		this->m_name = other.m_name;
 	}
 	return (*this);
 }

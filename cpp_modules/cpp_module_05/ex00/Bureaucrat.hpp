@@ -21,7 +21,7 @@
 class	Bureaucrat
 {
 	private:
-		std::string			m_name;
+		const std::string	m_name;
 		short				m_grade;
 
 		short			validate_grade( const std::string& newName, const short& newGrade );
